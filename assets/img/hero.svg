@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="蓝白科技风雷达与电路网格背景">
+  <defs>
+    <radialGradient id="glow" cx="72%" cy="38%" r="62%">
+      <stop offset="0" stop-color="#2f6bff" stop-opacity=".14"/>
+      <stop offset="38%" stop-color="#8fb6ff" stop-opacity=".1"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cyanGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#0891b2" stop-opacity=".35"/>
+      <stop offset="45%" stop-color="#0891b2" stop-opacity=".1"/>
+      <stop offset="100%" stop-color="#0891b2" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sweep" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#0891b2" stop-opacity=".02"/>
+      <stop offset="55%" stop-color="#2f6bff" stop-opacity=".1"/>
+      <stop offset="100%" stop-color="#2f6bff" stop-opacity=".22"/>
+    </linearGradient>
+    <linearGradient id="horizon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f6bff" stop-opacity="0"/>
+      <stop offset="55%" stop-color="#2f6bff" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#0891b2" stop-opacity=".06"/>
+    </linearGradient>
+    <linearGradient id="traceFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2f6bff" stop-opacity="0"/>
+      <stop offset="45%" stop-color="#2f6bff" stop-opacity=".35"/>
+      <stop offset="100%" stop-color="#0891b2" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="1.6" cy="1.6" r="1.2" fill="#2f6bff" fill-opacity=".16"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="900" fill="#f7fbff"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+  <rect width="1600" height="900" fill="url(#dots)" opacity=".6"/>
+
+  <!-- 透视地面网格 -->
+  <g stroke="#2f6bff" stroke-opacity=".1" fill="none">
+    <path d="M0 604 H1600" stroke-opacity=".22"/>
+    <path d="M0 640 H1600" stroke-opacity=".17"/>
+    <path d="M0 690 H1600" stroke-opacity=".14"/>
+    <path d="M0 752 H1600" stroke-opacity=".12"/>
+    <path d="M0 824 H1600" stroke-opacity=".1"/>
+    <path d="M-60 900 L250 604 M120 900 L400 604 M300 900 L540 604 M480 900 L680 604 M660 900 L810 604 M840 900 L940 604 M1020 900 L1070 604 M1200 900 L1205 604 M1380 900 L1340 604 M1560 900 L1480 604 M1740 900 L1620 604"/>
+  </g>
+  <rect x="0" y="592" width="1600" height="3" fill="url(#horizon)"/>
+
+  <!-- 雷达 -->
+  <g transform="translate(1160 372)">
+    <circle r="318" fill="url(#cyanGlow)" opacity=".22" filter="url(#soft)"/>
+    <g fill="none" stroke="#2f6bff">
+      <circle r="92" stroke-opacity=".26"/>
+      <circle r="156" stroke-opacity=".2"/>
+      <circle r="224" stroke-opacity=".15"/>
+      <circle r="296" stroke-opacity=".1"/>
+      <circle r="12" stroke-opacity=".5"/>
+    </g>
+    <g stroke="#2f6bff" stroke-opacity=".16">
+      <path d="M-296 0 H296"/>
+      <path d="M0 -296 V296"/>
+      <path d="M-209 -209 L209 209"/>
+      <path d="M-209 209 L209 -209"/>
+    </g>
+    <g fill="none" stroke="#0891b2" stroke-opacity=".16" stroke-dasharray="3 9">
+      <circle r="124"/>
+      <circle r="190"/>
+      <circle r="260"/>
+    </g>
+    <path d="M0 0 L-188 -248 A316 316 0 0 1 118 -292 Z" fill="url(#sweep)" opacity=".9"/>
+    <path d="M0 0 L-188 -248" stroke="#0891b2" stroke-opacity=".4" stroke-width="1.5"/>
+    <g>
+      <circle cx="-126" cy="-98" r="4.6" fill="#0891b2"/>
+      <circle cx="-126" cy="-98" r="15" fill="url(#cyanGlow)"/>
+      <circle cx="148" cy="-142" r="3.6" fill="#2f6bff"/>
+      <circle cx="148" cy="-142" r="12" fill="url(#cyanGlow)" opacity=".5"/>
+      <circle cx="206" cy="96" r="4" fill="#0891b2"/>
+      <circle cx="206" cy="96" r="14" fill="url(#cyanGlow)" opacity=".7"/>
+      <circle cx="-52" cy="212" r="3" fill="#2f6bff" opacity=".7"/>
+      <circle cx="-52" cy="212" r="11" fill="url(#cyanGlow)" opacity=".4"/>
+      <circle cx="-248" cy="52" r="2.6" fill="#2f6bff" opacity=".5"/>
+    </g>
+  </g>
+
+  <!-- 电路走线 -->
+  <g fill="none" stroke="url(#traceFade)" stroke-width="1.6">
+    <path d="M0 214 H238 L286 262 H520 L566 216 H760"/>
+    <path d="M0 268 H190 L232 310 H430"/>
+    <path d="M1600 150 H1436 L1388 198 H1218"/>
+    <path d="M1600 512 H1470 L1424 466 H1288"/>
+    <path d="M900 900 V812 L946 766 H1128 L1178 716 H1320"/>
+    <path d="M240 900 V846 L286 800 H470 L516 754 H640"/>
+  </g>
+  <g fill="#2f6bff">
+    <circle cx="760" cy="216" r="2.6" opacity=".45"/>
+    <circle cx="430" cy="310" r="2.4" opacity=".4"/>
+    <circle cx="1218" cy="198" r="2.6" opacity=".45"/>
+    <circle cx="1288" cy="466" r="2.4" opacity=".4"/>
+    <circle cx="1320" cy="716" r="2.6" opacity=".4"/>
+    <circle cx="640" cy="754" r="2.4" opacity=".35"/>
+    <circle cx="238" cy="214" r="3" fill="#0891b2" opacity=".55"/>
+    <circle cx="1470" cy="512" r="3" fill="#0891b2" opacity=".5"/>
+  </g>
+
+  <!-- 数据面板 -->
+  <g opacity=".85">
+    <g transform="translate(946 92)">
+      <rect width="250" height="126" rx="10" fill="#ffffff" fill-opacity=".82" stroke="#2f6bff" stroke-opacity=".22"/>
+      <rect x="16" y="16" width="78" height="6" rx="3" fill="#2f6bff" opacity=".45"/>
+      <rect x="16" y="34" width="44" height="4" rx="2" fill="#2f6bff" opacity=".18"/>
+      <g fill="#0891b2">
+        <rect x="16" y="88" width="12" height="22" rx="2" opacity=".3"/>
+        <rect x="36" y="72" width="12" height="38" rx="2" opacity=".42"/>
+        <rect x="56" y="80" width="12" height="30" rx="2" opacity=".34"/>
+        <rect x="76" y="56" width="12" height="54" rx="2" opacity=".6"/>
+        <rect x="96" y="66" width="12" height="44" rx="2" opacity=".44"/>
+        <rect x="116" y="44" width="12" height="66" rx="2" opacity=".7"/>
+      </g>
+      <path d="M150 62 L172 48 L192 58 L216 34" fill="none" stroke="#2f6bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".7"/>
+      <circle cx="216" cy="34" r="3.4" fill="#0891b2"/>
+    </g>
+    <g transform="translate(1332 236)">
+      <rect width="196" height="96" rx="10" fill="#ffffff" fill-opacity=".78" stroke="#2f6bff" stroke-opacity=".16"/>
+      <rect x="14" y="14" width="58" height="5" rx="2.5" fill="#2f6bff" opacity=".4"/>
+      <rect x="14" y="32" width="118" height="4" rx="2" fill="#2f6bff" opacity=".16"/>
+      <rect x="14" y="46" width="94" height="4" rx="2" fill="#2f6bff" opacity=".12"/>
+      <rect x="14" y="66" width="168" height="6" rx="3" fill="#e2edfd"/>
+      <rect x="14" y="66" width="112" height="6" rx="3" fill="#2f6bff" opacity=".45"/>
+    </g>
+  </g>
+
+  <!-- 六边形节点 -->
+  <g fill="none" stroke="#2f6bff" stroke-opacity=".2">
+    <path d="M236 402 l42 -24 42 24 0 48 -42 24 -42 -24 z"/>
+    <path d="M300 470 l28 -16 28 16 0 32 -28 16 -28 -16 z"/>
+    <path d="M1396 566 l36 -21 36 21 0 42 -36 21 -36 -21 z"/>
+  </g>
+  <g fill="#0891b2">
+    <circle cx="236" cy="402" r="2.6" opacity=".55"/>
+    <circle cx="328" cy="426" r="2.6" opacity=".35"/>
+    <circle cx="1396" cy="566" r="2.4" opacity=".4"/>
+  </g>
+
+  <!-- 粒子 -->
+  <g fill="#2f6bff">
+    <circle cx="86" cy="126" r="1.6" opacity=".4"/>
+    <circle cx="512" cy="88" r="1.4" opacity=".3"/>
+    <circle cx="684" cy="150" r="1.8" opacity=".35"/>
+    <circle cx="872" cy="486" r="1.5" opacity=".28"/>
+    <circle cx="1512" cy="92" r="1.6" opacity=".35"/>
+    <circle cx="1462" cy="742" r="1.8" opacity=".3"/>
+    <circle cx="1042" cy="806" r="1.4" opacity=".28"/>
+    <circle cx="366" cy="654" r="1.5" opacity=".25"/>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Dependencies (not used, kept for safety)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Logs & temp
+*.log
+npm-debug.log*
+.DS_Store?
