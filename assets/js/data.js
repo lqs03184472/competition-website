@@ -17,6 +17,29 @@ const DATA_UPDATED = "2026-10-26";
 
 const CATEGORIES = ["创新创业", "学科基础", "信息技术", "设计艺术", "工程实践", "其他"];
 
+/* 专业方向分组：用于“专业方向”筛选。
+ * 条目可用 majors: [] 显式声明可参加的专业方向；
+ * 未声明的旧条目按 CATEGORY_MAJOR 兜底映射。 */
+const MAJOR_GROUPS = [
+  "人工智能与数字技术",
+  "婴幼儿托育与学前教育",
+  "医护康养",
+  "财经商贸",
+  "旅游酒店",
+  "工程与智能制造",
+  "艺术与设计",
+  "通用/跨专业"
+];
+
+const CATEGORY_MAJOR = {
+  创新创业: "通用/跨专业",
+  学科基础: "通用/跨专业",
+  信息技术: "人工智能与数字技术",
+  设计艺术: "艺术与设计",
+  工程实践: "工程与智能制造",
+  其他: "医护康养"
+};
+
 const COMPETITIONS = [
   {
     id: 1,
@@ -277,6 +300,7 @@ const COMPETITIONS = [
     short: "三创赛",
     level: "B",
     category: "创新创业",
+    majors: ["财经商贸", "通用/跨专业"],
     organizer: "全国电子商务产教融合创新联盟、西安交通大学",
     format: "团队 3–5 人",
     cycle: "2026 · 第十六届",
@@ -461,6 +485,7 @@ const COMPETITIONS = [
     short: "市调大赛",
     level: "B",
     category: "学科基础",
+    majors: ["财经商贸", "通用/跨专业"],
     organizer: "中国商业统计学会",
     format: "团队 3–5 人",
     cycle: "2027 · 第十七届",
@@ -795,6 +820,388 @@ const COMPETITIONS = [
     sources: [
       { title: "未来设计师 NCDA 大赛官网", url: "https://www.ncda.org.cn" },
       { title: "长沙学院：2026 年 NCDA 大赛通知", url: "http://ysxy.ccsu.cn/info/1017/29251.htm" }
+    ]
+  },
+
+  /* ---------------- 人工智能与数字技术 ---------------- */
+
+  {
+    id: 35,
+    name: "世界职业院校技能大赛 · 人工智能赛道",
+    short: "世校赛 · 人工智能",
+    level: "A",
+    category: "信息技术",
+    majors: ["人工智能与数字技术", "通用/跨专业"],
+    organizer: "教育部等（世界职业院校技能大赛组委会）",
+    format: "团队 · 不限专业",
+    cycle: "2026 · 争夺赛（已完赛）",
+    content:
+      "世校赛按赛道组织。人工智能赛道以团队形式完成数据采集与处理、模型训练与调优、智能应用部署等真实场景任务，并进行现场展示与答辩。",
+    site: "https://www.vcsc.org.cn",
+    reg: { start: null, end: null, precision: "unknown" },
+    regState: "closed",
+    event: { start: "2026-09-01", end: "2026-09-30", precision: "month" },
+    schedule:
+      "依据教育部《2026 年世界职业院校技能大赛实施方案》，2026 年共设 43 个赛道，争夺赛须于 9 月底前完成；排位赛不含人工智能赛道。",
+    status: "official",
+    note:
+      "人工智能赛道、中华传统技艺赛道参赛对象不限专业，普通高中、普通本科在校生亦可参加；2027 年赛道设置与报名时间待新方案发布。竞赛级别按本校认定目录核定。",
+    sources: [
+      { title: "教育部：2026 年世界职业院校技能大赛实施方案", url: "http://www.moe.gov.cn/srcsite/A07/s7055/202608/t20260820_1447374.html" },
+      { title: "世界职业院校技能大赛官网", url: "https://www.vcsc.org.cn" }
+    ]
+  },
+  {
+    id: 36,
+    name: "金砖国家职业技能大赛 · 人工智能类赛项",
+    short: "金砖大赛 · AI",
+    level: "B",
+    category: "信息技术",
+    majors: ["人工智能与数字技术"],
+    organizer: "金砖国家职业技能大赛组委会",
+    format: "2–3 人团队",
+    cycle: "2026 · 第十届",
+    content:
+      "2026 年设 BRICS-FS-56 人工智能技术应用（2 人赛）、BRICS-FS-57 人工智能多模态与电子设计技术（3 人赛）、BRICS-FS-58 人工智能应用创新（2 人赛），以任务书驱动，考核模型训练、多模态处理与行业应用方案设计。",
+    site: "https://www.brskills.com",
+    reg: { start: null, end: null, precision: "unknown" },
+    event: { start: null, end: null, precision: "unknown" },
+    schedule:
+      "第十届赛项清单已公布，各赛项报名与国内选拔时间由组委会及各省分批通知，报名通过金砖国家职业技能大赛报名平台提交。",
+    status: "official",
+    note:
+      "公开通知中尚未统一给出各赛项比赛日期，请在国内选拔通知发布后报名；竞赛级别按本校认定目录核定。",
+    sources: [
+      { title: "金砖国家职业技能大赛公告", url: "http://www.brskills.com" },
+      { title: "金砖国家职业技能大赛报名平台", url: "https://www.bricsacademy.org.cn/signup/index" }
+    ]
+  },
+  {
+    id: 37,
+    name: "华为 ICT 大赛",
+    short: "华为 ICT · 第十一届",
+    level: "B",
+    category: "信息技术",
+    majors: ["人工智能与数字技术"],
+    organizer: "华为技术有限公司",
+    format: "个人/团队 · 校赛选拔",
+    cycle: "2026—2027 · 第十一届",
+    content:
+      "设网络、云、计算（含人工智能方向）等赛道，分实践赛与创新赛，按校赛、省赛、中国总决赛、全球总决赛逐级晋级。",
+    site: "https://e.huawei.com/cn/talent/ict-academy/#/ict-contest",
+    reg: { start: "2026-08-31", end: "2026-10-31", precision: "day" },
+    event: { start: "2026-11-01", end: "2026-12-31", precision: "month" },
+    schedule:
+      "2026 年 8 月 31 日—10 月 31 日报名；省赛 2026 年 11—12 月；中国总决赛 2027 年 3 月。",
+    status: "official",
+    note: "报名由各校华为 ICT 学院/相关二级学院组织，校内选拔截止时间通常早于全国报名截止日。",
+    sources: [
+      { title: "华为 ICT 大赛官网", url: "https://e.huawei.com/cn/talent/ict-academy/#/ict-contest" },
+      { title: "西安交通大学：2026—2027 华为 ICT 大赛报名通知", url: "https://se.xjtu.edu.cn/info/1043/4027.htm" }
+    ]
+  },
+  {
+    id: 38,
+    name: "四川省职业院校技能大赛（高职组）",
+    short: "四川省赛",
+    level: "B",
+    category: "其他",
+    majors: ["人工智能与数字技术", "婴幼儿托育与学前教育", "医护康养", "通用/跨专业"],
+    organizer: "四川省教育厅",
+    format: "团队 · 校赛选拔",
+    cycle: "2026 · 赛项待公布",
+    content:
+      "省级职业院校技能大赛，按赛道（组）设置赛项，覆盖人工智能技术应用、婴幼儿照护、健康养老与婴幼儿托育、护理、电子商务等方向；省赛优胜队伍由省教育厅推荐参加世界职业院校技能大赛。",
+    site: "https://sicsve.cdp.edu.cn",
+    reg: { start: null, end: null, precision: "unknown" },
+    event: { start: null, end: null, precision: "unknown" },
+    schedule:
+      "2026 年 10 月，四川省教育厅启动 2026 年省赛赛道（组）承办申报，各赛项报名与比赛时间由承办院校陆续发布。2025 年省赛“健康养老与婴幼儿托育”赛道高职组于 2026 年 1 月 13—15 日在川南幼儿师范高等专科学校举行。",
+    status: "reference",
+    note:
+      "省赛赛项每年调整，报名一般由本校教务处或二级学院统一组织，务必关注学校通知；竞赛级别按本校认定目录核定。",
+    sources: [
+      { title: "四川职业教育技能创新中心 · 通知公告", url: "https://sicsve.cdp.edu.cn/go-a262.htm" },
+      { title: "2025 年四川省职业院校技能大赛健康养老与婴幼儿托育赛道通知（PDF）", url: "https://sicsve.cdp.edu.cn/webapp/accessory/ueditor/sicsve.cdp.edu.cn/upload/file/2026-01-02/1767323850980088554.pdf" }
+    ]
+  },
+
+  /* ---------------- 通用 / 跨专业 ---------------- */
+
+  {
+    id: 39,
+    name: "全国大学生职业规划大赛",
+    short: "职业规划大赛",
+    level: "A",
+    category: "创新创业",
+    majors: ["通用/跨专业"],
+    organizer: "教育部",
+    format: "个人 · 校赛—省赛—全国总决赛",
+    cycle: "2026—2027 · 第四届",
+    content:
+      "设成长赛道与就业赛道，成长赛道分高教组、职教组，提交生涯发展报告或求职简历并现场展示答辩，考查职业目标设定、学习实践行动与岗位胜任力。",
+    site: "https://zgs.chsi.com.cn",
+    reg: { start: null, end: "2027-01-03", precision: "day" },
+    event: { start: null, end: null, precision: "unknown" },
+    schedule:
+      "教育部 2026 年 10 月 10 日印发通知；报名期 2026 年 10 月—2027 年 1 月，各校截止时间不晚于 2027 年 1 月 3 日；校赛、省赛、全国总决赛依次进行。",
+    status: "official",
+    note:
+      "成长赛道职教组面向职教本科、高职（专科）非毕业年级学生，大一即可参加；报名通过全国大学生职业规划大赛平台提交。",
+    sources: [
+      { title: "教育部：关于举办第四届全国大学生职业规划大赛的通知", url: "https://hudong.moe.gov.cn/srcsite/A15/s7063/202610/t20261010_1453481.html" },
+      { title: "全国大学生职业规划大赛平台", url: "https://zgs.chsi.com.cn" }
+    ]
+  },
+
+  /* ---------------- 婴幼儿托育与学前教育 ---------------- */
+
+  {
+    id: 40,
+    name: "世界职业院校技能大赛 · 健康养老与婴幼儿托育赛道",
+    short: "世校赛 · 托育",
+    level: "A",
+    category: "其他",
+    majors: ["婴幼儿托育与学前教育", "医护康养"],
+    organizer: "教育部等（世界职业院校技能大赛组委会）",
+    format: "团队 · 省赛推荐",
+    cycle: "2026 · 争夺赛（已完赛）",
+    content:
+      "面向健康养老与婴幼儿托育领域，考核婴幼儿生活照料、回应性照护、卫生保健与早期发展支持，以及老年照护等综合职业技能。",
+    site: "https://www.vcsc.org.cn",
+    reg: { start: null, end: null, precision: "unknown" },
+    regState: "closed",
+    event: { start: "2026-09-26", end: "2026-09-30", precision: "day" },
+    schedule:
+      "2026 年 9 月 26—30 日举行争夺赛：高职 1 组在湖南民族职业学院，高职 3 组与中职 1 组在长沙民政职业技术学院。",
+    status: "official",
+    note:
+      "参赛名额由各省按省赛成绩推荐，需先通过本校选拔并在省赛取得名次；2027 年安排待新方案发布。竞赛级别按本校认定目录核定。",
+    sources: [
+      { title: "教育部：2026 年世界职业院校技能大赛实施方案", url: "http://www.moe.gov.cn/srcsite/A07/s7055/202608/t20260820_1447374.html" },
+      { title: "世界职业院校技能大赛官网", url: "https://www.vcsc.org.cn" }
+    ]
+  },
+  {
+    id: 41,
+    name: "世界职业院校技能大赛 · 教育与体育赛道",
+    short: "世校赛 · 教育与体育",
+    level: "A",
+    category: "其他",
+    majors: ["婴幼儿托育与学前教育"],
+    organizer: "教育部等（世界职业院校技能大赛组委会）",
+    format: "团队 · 4 人",
+    cycle: "2026 · 争夺赛（已完赛）",
+    content:
+      "面向教育与体育类专业，以团队形式完成教学活动设计与实施、专业技能展示和现场答辩，考查保教实践与团队协作能力。",
+    site: "https://www.vcsc.org.cn",
+    reg: { start: null, end: null, precision: "unknown" },
+    regState: "closed",
+    event: { start: "2026-09-24", end: "2026-09-29", precision: "day" },
+    schedule:
+      "2026 年 9 月 24—29 日在昆明幼儿师范高等专科学校举行，300 余支队伍参赛。",
+    status: "official",
+    note:
+      "泸州职业技术学院学前教育团队在该赛道获平行组第一、金奖并晋级排位赛（据院校公开报道）；2027 年安排待新方案发布。",
+    sources: [
+      { title: "教育部：2026 年世界职业院校技能大赛实施方案", url: "http://www.moe.gov.cn/srcsite/A07/s7055/202608/t20260820_1447374.html" },
+      { title: "世界职业院校技能大赛官网", url: "https://www.vcsc.org.cn" }
+    ]
+  },
+  {
+    id: 42,
+    name: "“慧爱杯”全国职业院校托幼职业技能竞赛",
+    short: "慧爱杯 · 托幼技能",
+    level: "B",
+    category: "其他",
+    majors: ["婴幼儿托育与学前教育"],
+    organizer: "中国人口学会（指导）· 全国托育产教融合共同体",
+    format: "高职学生 3 人团体 / 教师个人",
+    cycle: "2025—2026 · 第三届（第四届待通知）",
+    content:
+      "设高职学生赛（3 人团体，覆盖婴幼儿照护、早期发展支持与托育机构实务）与教师数字职业素养赛，采用实操与方案展示结合的方式评审。",
+    site: "https://www.ncec.edu.cn",
+    reg: { start: null, end: null, precision: "unknown" },
+    event: { start: "2025-12-05", end: "2025-12-07", precision: "day" },
+    schedule:
+      "第三届于 2025 年 12 月 5—7 日在湖北幼儿师范高等专科学校举行；第四届通知尚未发布。",
+    status: "reference",
+    note:
+      "第四届时间未公布，按往届节奏一般在下半年启动报名；属行业赛，报名方式与费用以组委会通知为准。",
+    sources: [
+      { title: "湖北幼儿师范高等专科学校：第三届“慧爱杯”竞赛", url: "https://www.ncec.edu.cn/2025/1212/c40a18599/page.htm" },
+      { title: "河北新闻网：“慧爱杯”托幼职业技能竞赛", url: "https://hbxw.hebnews.cn/news/573751.html" }
+    ]
+  },
+  {
+    id: 43,
+    name: "金砖国家职业技能大赛 · 幼儿照护赛项",
+    short: "金砖大赛 · 幼儿照护",
+    level: "B",
+    category: "其他",
+    majors: ["婴幼儿托育与学前教育"],
+    organizer: "金砖国家职业技能大赛组委会",
+    format: "团队 · 校赛选拔",
+    cycle: "2026 · 第四届",
+    content:
+      "围绕婴幼儿生活照料、卫生保健、安全照护、早期发展支持与照护方案设计设置任务，考核托育服务人员的综合实操能力。",
+    site: "https://www.brskills.com",
+    reg: { start: null, end: null, precision: "unknown" },
+    event: { start: null, end: null, precision: "unknown" },
+    schedule:
+      "第四届国内选拔由各校先行遴选，南昌健康职业技术学院校内遴选于 2026 年 9 月 20 日截止；后续赛程以组委会通知为准。",
+    status: "reference",
+    note: "须经本校遴选推荐，个人无法直接报名；具体赛期以金砖大赛报名平台公告为准。",
+    sources: [
+      { title: "金砖国家职业技能大赛公告", url: "http://www.brskills.com" },
+      { title: "金砖国家职业技能大赛报名平台", url: "https://www.bricsacademy.org.cn/signup/index" }
+    ]
+  },
+  {
+    id: 44,
+    name: "全国幼儿教师专业基本功比赛",
+    short: "幼儿教师基本功",
+    level: "B",
+    category: "其他",
+    majors: ["婴幼儿托育与学前教育"],
+    organizer: "全国幼儿教师专业基本功比赛组委会",
+    format: "个人 · 作品评审",
+    cycle: "2026 · 第十届",
+    content:
+      "设教学活动设计、玩教具制作、绘画手工、舞蹈声乐、教育随笔等项目，以作品视频与文字材料提交、专家评审为主。",
+    site: "http://www.bjxqjy.com.cn",
+    reg: { start: "2026-09-08", end: null, precision: "day" },
+    regState: "open",
+    event: { start: null, end: null, precision: "unknown" },
+    schedule:
+      "第九届作品截止 2026 年 4 月 22 日；第十届作品征选通知于 2026 年 9 月 8 日发布，具体截止日期以官网为准。",
+    status: "official",
+    note:
+      "行业赛事，通常收取评审费；适合积累作品与证书，是否计入本校认定加分以学校规定为准。",
+    sources: [
+      { title: "全国幼儿教师专业基本功比赛 · 活动公告", url: "http://www.bjxqjy.com.cn/hdgc?nav_id=132" }
+    ]
+  },
+  {
+    id: 45,
+    name: "大蜀道职业院校技能大赛 · 婴幼儿照护赛项",
+    short: "大蜀道 · 婴幼儿照护",
+    level: "B",
+    category: "其他",
+    majors: ["婴幼儿托育与学前教育"],
+    organizer: "广元市教育局、广元市人力资源和社会保障局",
+    format: "团队 3 人",
+    cycle: "2026 · 第四届（已完赛）",
+    content:
+      "设 A 婴幼儿回应性照护、B 婴幼儿健康照护（保健抚触、气道异物梗阻急救）、C 婴幼儿早期发展支持（亲子活动方案设计与展示）三个模块。",
+    site: "https://xqjyx.cbyz.edu.cn",
+    reg: { start: null, end: null, precision: "unknown" },
+    regState: "closed",
+    event: { start: "2026-10-21", end: "2026-10-22", precision: "day" },
+    schedule:
+      "第四届于 2026 年 10 月 21—22 日在川北幼儿师范高等专科学校举行，为大赛 21 个赛项之一，9 所学校 13 支队伍 39 名选手参赛。",
+    status: "official",
+    note: "区域（跨市）赛事，一般由院校组队报名，个人参赛需通过本校选拔；下一届时间待通知。",
+    sources: [
+      { title: "川北幼儿师范高等专科学校：第四届大蜀道婴幼儿照护赛项", url: "https://xqjyx.cbyz.edu.cn/info/26102223190578898" }
+    ]
+  },
+
+  /* ---------------- 其他专业方向 ---------------- */
+
+  {
+    id: 46,
+    name: "全国大学生英语竞赛（NECCS）",
+    short: "NECCS · D 类",
+    level: "B",
+    category: "学科基础",
+    majors: ["通用/跨专业"],
+    organizer: "高等学校大学外语教学研究会、高等学校大学外语教学指导委员会",
+    format: "个人 · 笔试（含听力）",
+    cycle: "2027 · 待通知（2026 已结束）",
+    content:
+      "分 A（研究生）、B（英语专业本科）、C（非英语专业本科）、D（体育、艺术及高职高专）四类，D 类适合高职高专学生，考查听力、词汇、阅读、翻译与写作。",
+    site: "https://neccs.saikr.com",
+    reg: { start: null, end: null, precision: "unknown" },
+    event: { start: null, end: null, precision: "unknown" },
+    schedule:
+      "2026 年报名期为 2025 年 12 月 17 日—2026 年 3 月 13 日，省赛报名费 50 元；下一届报名通常在前一年 12 月启动，以官网通知为准。",
+    status: "reference",
+    note: "报名由本校外语学院/教务处统一组织，需在规定时间内向学校缴费报名。",
+    sources: [
+      { title: "全国大学生英语竞赛官网", url: "https://neccs.saikr.com" },
+      { title: "中南财经政法大学：2026 年 NECCS 报名通知", url: "https://wgyxy.zuel.edu.cn/2026/0304/c10336a423380/page.htm" }
+    ]
+  },
+  {
+    id: 47,
+    name: "“学创杯”全国大学生创业综合模拟大赛",
+    short: "学创杯",
+    level: "B",
+    category: "创新创业",
+    majors: ["财经商贸", "通用/跨专业"],
+    organizer: "高等学校国家级实验教学示范中心联席会经济与管理学科组",
+    format: "团队 3 人",
+    cycle: "2026 · 第十三届（2027 待通知）",
+    content:
+      "设研究生组、本科组、职教组，通过创业综合模拟软件经营企业，按六个季度决策比拼营收、利润与资金链管理，另设创业计划书评审环节。",
+    site: "https://www.xcbds.com",
+    reg: { start: "2026-04-30", end: "2026-05-18", precision: "day" },
+    event: { start: "2026-06-01", end: "2026-07-10", precision: "month" },
+    schedule:
+      "2026 年各校报名集中在 4 月 30 日—5 月 18 日；6 月校赛，7 月 10 日前完成省赛推荐；全国总决赛时间由组委会另行通知。",
+    status: "reference",
+    note: "各校报名与校赛时间不同，以本校通知为准；职教组面向高职（专科）学生。",
+    sources: [
+      { title: "“学创杯”大赛官网", url: "https://www.xcbds.com" },
+      { title: "中北大学：第十三届“学创杯”校赛通知", url: "https://cxcy.nuc.edu.cn/info/1040/6892.htm" }
+    ]
+  },
+  {
+    id: 48,
+    name: "全国旅游院校服务技能（导游服务）大赛",
+    short: "导游服务大赛",
+    level: "B",
+    category: "其他",
+    majors: ["旅游酒店"],
+    organizer: "中国旅游协会（指导）· 旅游教育分会、重庆旅游职业学院",
+    format: "个人 · 院校组队",
+    cycle: "2026 · 第十六届（已闭幕）",
+    content:
+      "面向旅游院校学生，以导游讲解、才艺展示与现场问答等环节考查导游服务综合技能，按本科、高职、中职组别分别评奖。",
+    site: "https://www.cteweb.cn/special/jineng16.html",
+    reg: { start: null, end: null, precision: "unknown" },
+    regState: "closed",
+    event: { start: "2026-05-01", end: "2026-05-24", precision: "month" },
+    schedule: "2026 年 3 月 2 日发布通知并开通专题页，5 月 24 日闭幕；下一届时间待通知。",
+    status: "official",
+    note: "以院校为单位组队报名，个人需通过本校旅游类专业院系选拔；下一届安排以中国旅游教育网为准。",
+    sources: [
+      { title: "中国旅游教育网：第十六届全国旅游院校服务技能大赛专题", url: "https://www.cteweb.cn/special/jineng16.html" }
+    ]
+  },
+  {
+    id: 49,
+    name: "全国大学生艺术展演活动",
+    short: "大学生艺术展演",
+    level: "A",
+    category: "设计艺术",
+    majors: ["艺术与设计", "通用/跨专业"],
+    organizer: "教育部",
+    format: "个人/团队 · 校级—省级—全国",
+    cycle: "2026—2027 · 第八届",
+    content:
+      "设艺术表演类（声乐、器乐、舞蹈、戏剧、朗诵）、艺术作品类（绘画、书法、摄影、设计、微电影）与高校美育改革创新优秀案例，逐级选拔后参加全国现场展演。",
+    site: "https://hudong.moe.gov.cn",
+    reg: { start: null, end: null, precision: "unknown" },
+    event: { start: "2026-04-01", end: "2027-12-31", precision: "month" },
+    schedule:
+      "2026 年 4 月启动，分校级展演、省级展演、全国汇演三个阶段；全国汇演 2027 年在重庆举行。",
+    status: "official",
+    note:
+      "报名由本校团委或艺术学院统一组织，校级截止时间早于省级；非艺术专业学生也可参加艺术作品类与表演类。",
+    sources: [
+      { title: "教育部：全国第八届大学生艺术展演活动启动", url: "https://hudong.moe.gov.cn/jyb_xwfb/gzdt_gzdt/s5987/202604/t20260417_1434035.html" }
     ]
   }
 ];

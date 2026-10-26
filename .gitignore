@@ -19,3 +19,6 @@ yarn.lock
 *.log
 npm-debug.log*
 .DS_Store?
+
+# Editor preview artifacts
+.trae-html-share-packages/

@@ -114,7 +114,17 @@
 
   /* ---------------- 筛选配置 ---------------- */
 
+  function majorsOf(item) {
+    if (Array.isArray(item.majors) && item.majors.length) return item.majors;
+    return [CATEGORY_MAJOR[item.category] || "通用/跨专业"];
+  }
+
   const FILTERS = [
+    {
+      key: "major",
+      options: [{ value: "all", label: "全部" }, ...MAJOR_GROUPS.map((name) => ({ value: name, label: name }))],
+      test: (item) => majorsOf(item)
+    },
     {
       key: "reg",
       options: [
@@ -155,6 +165,7 @@
 
   const state = {
     q: "",
+    major: "all",
     reg: "all",
     event: "all",
     level: "all",
@@ -251,6 +262,10 @@
               <dd>${esc(item.level)} 类 · ${esc(item.category)}</dd>
             </div>
             <div>
+              <dt>适用专业</dt>
+              <dd>${esc(majorsOf(item).join(" / "))}</dd>
+            </div>
+            <div>
               <dt>数据状态</dt>
               <dd>
                 <span class="status-inline">
@@ -283,6 +298,9 @@
           <div class="comp-main">
             <div class="comp-tags">
               <span class="tag-level level-${item.level.toLowerCase()}">${esc(item.level)} 类</span>
+              ${majorsOf(item)
+                .map((major) => `<span class="tag-major">${esc(major)}</span>`)
+                .join("")}
               <span class="tag-cat">${esc(item.category)}</span>
               <span class="tag-cycle">${esc(item.cycle)}</span>
             </div>
@@ -321,6 +339,7 @@
   }
 
   function matches(item) {
+    if (state.major !== "all" && !majorsOf(item).includes(state.major)) return false;
     if (state.reg !== "all" && regStatus(item) !== state.reg) return false;
     if (state.event !== "all" && eventStatus(item) !== state.event) return false;
     if (state.level !== "all" && item.level !== state.level) return false;
@@ -333,6 +352,7 @@
           item.short,
           item.organizer,
           item.category,
+          item.majors ? item.majors.join(" ") : "",
           item.cycle,
           item.content,
           item.schedule,
@@ -346,7 +366,7 @@
   }
 
   function isFiltered() {
-    return Boolean(state.q.trim()) || ["reg", "event", "level", "cat"].some((key) => state[key] !== "all");
+    return Boolean(state.q.trim()) || FILTERS.some((filter) => state[filter.key] !== "all");
   }
 
   function activeLabels() {
@@ -371,7 +391,10 @@
           const count =
             option.value === "all"
               ? COMPETITIONS.length
-              : COMPETITIONS.filter((item) => filter.test(item) === option.value).length;
+              : COMPETITIONS.filter((item) => {
+                  const value = filter.test(item);
+                  return Array.isArray(value) ? value.includes(option.value) : value === option.value;
+                }).length;
           return `<button class="chip" type="button" data-group="${filter.key}" data-value="${option.value}" aria-pressed="false">${option.label}<span class="count">${count}</span></button>`;
         })
         .join("");
@@ -404,10 +427,9 @@
 
   function resetAll() {
     state.q = "";
-    state.reg = "all";
-    state.event = "all";
-    state.level = "all";
-    state.cat = "all";
+    FILTERS.forEach((filter) => {
+      state[filter.key] = "all";
+    });
     state.sort = "id";
     searchEl.value = "";
     sortEl.value = "id";
@@ -420,7 +442,7 @@
     try {
       const url = new URL(window.location.href);
       const params = url.searchParams;
-      ["reg", "event", "level", "cat"].forEach((key) => {
+      ["major", "reg", "event", "level", "cat"].forEach((key) => {
         if (state[key] !== "all") params.set(key, state[key]);
         else params.delete(key);
       });
